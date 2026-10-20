@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bài 17 - Pagination with dots</title>
+  <style>
+    body { font: 16px sans-serif; max-width: 500px; margin: 40px auto; }
+    .page { min-height: 100px; padding: 24px; border: 1px solid #ccc; }
+    .controls { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+    .dot { width: 12px; height: 12px; padding: 0; border: 0; border-radius: 50%; background: #bbb; cursor: pointer; }
+    .dot.active { background: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="page" class="page"></div>
+    <nav id="dots" class="controls" aria-label="Chọn trang"></nav>
+  </main>
+  <script>
+    const pages = ['Nội dung trang 1', 'Nội dung trang 2', 'Nội dung trang 3'];
+    const page = document.querySelector('#page');
+    const dots = document.querySelector('#dots');
+
+    function render(currentPage) {
+      page.textContent = pages[currentPage];
+      dots.replaceChildren(...pages.map((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = `dot${index === currentPage ? ' active' : ''}`;
+        dot.type = 'button';
+        dot.ariaLabel = `Trang ${index + 1}`;
+        dot.addEventListener('click', () => render(index));
+        return dot;
+      }));
+    }
+
+    render(0);
+  </script>
+</body>
+</html>

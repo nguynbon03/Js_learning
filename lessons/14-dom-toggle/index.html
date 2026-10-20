@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 14 - Ẩn hiện div</title>
+  <style>#content[hidden] { display: none; }</style>
+</head>
+<body>
+  <button id="toggle-button" type="button">Ẩn/hiện</button>
+  <div id="content">Nội dung div có thể ẩn hoặc hiện.</div>
+  <script>
+    const content = document.querySelector('#content');
+    document.querySelector('#toggle-button').addEventListener('click', () => {
+      content.hidden = !content.hidden;
+    });
+  </script>
+</body>
+</html>

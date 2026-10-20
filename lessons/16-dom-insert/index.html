@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Bài 16 - Thêm thẻ</title></head>
+<body>
+  <button id="above-button" type="button">Thêm phía trên</button>
+  <button id="below-button" type="button">Thêm phía dưới</button>
+  <div id="target">Thẻ div gốc</div>
+  <script>
+    const target = document.querySelector('#target');
+    document.querySelector('#above-button').addEventListener('click', () => {
+      target.insertAdjacentHTML('beforebegin', '<p>Thẻ mới phía trên.</p>');
+    });
+    document.querySelector('#below-button').addEventListener('click', () => {
+      target.insertAdjacentHTML('afterend', '<p>Thẻ mới phía dưới.</p>');
+    });
+  </script>
+</body>
+</html>

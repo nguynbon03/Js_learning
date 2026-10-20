@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Bài 09 - Event</title></head>
+<body>
+  <button id="show-button">Bấm vào đây</button>
+  <p id="message">Chưa có sự kiện.</p>
+  <script>
+    document.querySelector('#show-button').addEventListener('click', () => {
+      document.querySelector('#message').textContent = 'Bạn vừa click button.';
+    });
+  </script>
+</body>
+</html>

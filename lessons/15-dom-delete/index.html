@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="UTF-8"><title>Bài 15 - Xóa thẻ</title></head>
+<body>
+  <div id="card"><p>Card này sẽ bị xóa.</p><button id="delete-button" type="button">Xóa</button></div>
+  <script>
+    document.querySelector('#delete-button').addEventListener('click', () => {
+      document.querySelector('#card')?.remove();
+    });
+  </script>
+</body>
+</html>
